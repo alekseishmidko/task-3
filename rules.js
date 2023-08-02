@@ -1,7 +1,6 @@
 class Rules {
   constructor(moves) {
     this.moves = moves;
-    // this.moveCount = moves.length;
     this.lastElementIndex = this.moves.length - 1;
   }
 
@@ -30,7 +29,6 @@ class Rules {
   determineOutcome(userIndex, computerIndex) {
     const loseIndexes = this.getLoseIndexArray(userIndex);
 
-    // Returns the outcome if the user wins, loses, or draws.
     if (userIndex === computerIndex) {
       return `Draw`;
     } else if (!loseIndexes.includes(computerIndex)) {
@@ -40,7 +38,6 @@ class Rules {
   }
 
   getLoseIndexArray(userIndex) {
-    // This part adds the indexes that the user loses to in an array 'loseIndexes'
     const num = Math.floor(this.moves.length / 2);
     const loseIndexes = [];
     for (let j = 1; j <= num; j++) {
@@ -57,7 +54,7 @@ class Rules {
   getWinIndexArray(userIndex) {
     const loseIndexes = this.getLoseIndexArray(userIndex);
     const winIndexes = this.moves
-      .map((item, index) => index) // Create an array of all indexes
+      .map((item, index) => index)
       .filter((index) => index !== userIndex && !loseIndexes.includes(index));
 
     return winIndexes;

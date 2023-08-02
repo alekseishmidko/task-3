@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ascii-table": "^0.0.9",
     "console.table": "^0.10.0",
     "crypto": "^1.0.1",
     "prompt-sync": "^4.2.0"
