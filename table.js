@@ -1,4 +1,3 @@
-// const AsciiTable = require("ascii-table");
 const Rules = require("./rules.js");
 const consoleTable = require("console.table");
 

@@ -55,10 +55,13 @@ function getMove(moves) {
 }
 
 playGame();
-// убрать модуль hmac
 
-//
-// node index.js 1 2 3 4 5
-// node index.js 1 2 3 4 5 6
-// node index.js 1 2 3 4 5 6 6
+// node index.js one  two three  + table
+
 // node index.js one  two three  four  five six seven
+
+// node index.js one  two three  four  five six
+
+// node index.js one  two three  four  five six six
+
+// node index.js one  two three  four  five   fouR  FivE

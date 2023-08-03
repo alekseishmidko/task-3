@@ -6,16 +6,21 @@ class Rules {
   }
 
   validateMoves() {
-    if (this.moves.length < 3 || this.moves.length % 2 === 0) {
+    if (
+      this.moves.length < 3 ||
+      this.moves.length % 2 === 0 ||
+      new Set(this.moves.map((item) => item.toLowerCase())).size !==
+        this.moves.length
+    ) {
       return false;
     }
-    const uniqueMoves = new Set();
-    for (const move of this.moves) {
-      if (uniqueMoves.has(move)) {
-        return false;
-      }
-      uniqueMoves.add(move);
-    }
+    // const uniqueMoves = new Set();
+    // for (const move of this.moves) {
+    //   if (uniqueMoves.has(move)) {
+    //     return false;
+    //   }
+    //   uniqueMoves.add(move);
+    // }
     return true;
   }
 
