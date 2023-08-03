@@ -17,12 +17,11 @@ if (!rules.validateMoves()) {
 
 function playGame() {
   const computerMove = Math.floor(Math.random() * moves.length);
-  // const key = keyGenerator.generateKey();
+
   const key = keyGenerator.getKey();
-  // console.log("key", key);
+
   const hmac = keyGenerator.calculateHmac(computerMove);
   console.log(`HMAC: ${hmac}`);
-  // console.log(`HMAC key: ${keyGenerator.getKey()}`);
 
   rules.displayMenu(moves);
   const playerMove = getMove(moves);
@@ -55,13 +54,3 @@ function getMove(moves) {
 }
 
 playGame();
-
-// node index.js one  two three  + table
-
-// node index.js one  two three  four  five six seven
-
-// node index.js one  two three  four  five six
-
-// node index.js one  two three  four  five six six
-
-// node index.js one  two three  four  five   fouR  FivE
