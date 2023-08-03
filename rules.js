@@ -2,6 +2,7 @@ class Rules {
   constructor(moves) {
     this.moves = moves;
     this.lastElementIndex = this.moves.length - 1;
+    this.half = Math.floor(this.moves.length / 2);
   }
 
   validateMoves() {
@@ -26,13 +27,35 @@ class Rules {
     console.log(`? - help`);
   }
 
+  getRules(userMove, computerMove) {
+    let indexComputerMove, indexUserMove;
+
+    this.moves.forEach((el, index) => {
+      if (el == computerMove) indexComputerMove = ++index;
+      if (el == userMove) indexUserMove = ++index;
+    });
+
+    if (computerMove == userMove) return "   Draw   |";
+    else if (
+      !(
+        (indexComputerMove > indexUserMove &&
+          indexComputerMove <= indexUserMove + this.half) ||
+        indexComputerMove < indexUserMove - this.half
+      )
+    ) {
+      return " You lose |";
+    } else {
+      return " You win  |";
+    }
+  }
+
   determineOutcome(userIndex, computerIndex) {
     const loseIndexes = this.getLoseIndexArray(userIndex);
 
     if (userIndex === computerIndex) {
-      return `Draw`;
+      return `Draw!`;
     } else if (!loseIndexes.includes(computerIndex)) {
-      return `You lose !`;
+      return `You lose!`;
     }
     return `You win!`;
   }

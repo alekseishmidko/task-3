@@ -17,8 +17,12 @@ if (!rules.validateMoves()) {
 
 function playGame() {
   const computerMove = Math.floor(Math.random() * moves.length);
+  // const key = keyGenerator.generateKey();
+  const key = keyGenerator.getKey();
+  // console.log("key", key);
   const hmac = keyGenerator.calculateHmac(computerMove);
   console.log(`HMAC: ${hmac}`);
+  // console.log(`HMAC key: ${keyGenerator.getKey()}`);
 
   rules.displayMenu(moves);
   const playerMove = getMove(moves);
@@ -28,7 +32,7 @@ function playGame() {
 
   console.log(rules.determineOutcome(playerMove, computerMove));
 
-  console.log(`HMAC key: ${keyGenerator.getKey()}`);
+  console.log(`HMAC key: ${key}`);
 }
 
 function getMove(moves) {
@@ -51,7 +55,9 @@ function getMove(moves) {
 }
 
 playGame();
+// убрать модуль hmac
 
+//
 // node index.js 1 2 3 4 5
 // node index.js 1 2 3 4 5 6
 // node index.js 1 2 3 4 5 6 6

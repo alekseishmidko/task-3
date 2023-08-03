@@ -11,8 +11,14 @@ class Key {
     return randomBytes.toString("hex");
   }
 
-  calculateHmac(index, moves) {
-    const move = this.moves[index];
+  // calculateHmac(index, moves) {
+  //   const move = this.moves[index];
+  //   const hmac = crypto.createHmac("sha256", this.key);
+  //   hmac.update(move);
+  //   return hmac.digest("hex");
+  // }
+  calculateHmac(computerMove) {
+    const move = this.moves[computerMove];
     const hmac = crypto.createHmac("sha256", this.key);
     hmac.update(move);
     return hmac.digest("hex");
